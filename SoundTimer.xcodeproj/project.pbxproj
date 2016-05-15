@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0E6A19B1CE90D9500809C57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A19A1CE90D9500809C57 /* AppDelegate.swift */; };
+		D0E6A19D1CE90D9500809C57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A19C1CE90D9500809C57 /* ViewController.swift */; };
+		D0E6A1A01CE90D9500809C57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E6A19E1CE90D9500809C57 /* Main.storyboard */; };
+		D0E6A1A21CE90D9500809C57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0E6A1A11CE90D9500809C57 /* Assets.xcassets */; };
+		D0E6A1A51CE90D9500809C57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E6A1A31CE90D9500809C57 /* LaunchScreen.storyboard */; };
+		D0E6A1B01CE90D9500809C57 /* SoundTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A1AF1CE90D9500809C57 /* SoundTimerTests.swift */; };
+		D0E6A1BB1CE90D9500809C57 /* SoundTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A1BA1CE90D9500809C57 /* SoundTimerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0E6A1AC1CE90D9500809C57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0E6A18F1CE90D9500809C57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0E6A1961CE90D9500809C57;
+			remoteInfo = SoundTimer;
+		};
+		D0E6A1B71CE90D9500809C57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0E6A18F1CE90D9500809C57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0E6A1961CE90D9500809C57;
+			remoteInfo = SoundTimer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D0E6A1971CE90D9500809C57 /* SoundTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0E6A19A1CE90D9500809C57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D0E6A19C1CE90D9500809C57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0E6A19F1CE90D9500809C57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0E6A1A11CE90D9500809C57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0E6A1A41CE90D9500809C57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D0E6A1A61CE90D9500809C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0E6A1AB1CE90D9500809C57 /* SoundTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0E6A1AF1CE90D9500809C57 /* SoundTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTimerTests.swift; sourceTree = "<group>"; };
+		D0E6A1B11CE90D9500809C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0E6A1B61CE90D9500809C57 /* SoundTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0E6A1BA1CE90D9500809C57 /* SoundTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTimerUITests.swift; sourceTree = "<group>"; };
+		D0E6A1BC1CE90D9500809C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0E6A1941CE90D9500809C57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0E6A1A81CE90D9500809C57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0E6A1B31CE90D9500809C57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0E6A18E1CE90D9500809C57 = {
+			isa = PBXGroup;
+			children = (
+				D0E6A1991CE90D9500809C57 /* SoundTimer */,
+				D0E6A1AE1CE90D9500809C57 /* SoundTimerTests */,
+				D0E6A1B91CE90D9500809C57 /* SoundTimerUITests */,
+				D0E6A1981CE90D9500809C57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0E6A1981CE90D9500809C57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0E6A1971CE90D9500809C57 /* SoundTimer.app */,
+				D0E6A1AB1CE90D9500809C57 /* SoundTimerTests.xctest */,
+				D0E6A1B61CE90D9500809C57 /* SoundTimerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0E6A1991CE90D9500809C57 /* SoundTimer */ = {
+			isa = PBXGroup;
+			children = (
+				D0E6A19A1CE90D9500809C57 /* AppDelegate.swift */,
+				D0E6A19C1CE90D9500809C57 /* ViewController.swift */,
+				D0E6A19E1CE90D9500809C57 /* Main.storyboard */,
+				D0E6A1A11CE90D9500809C57 /* Assets.xcassets */,
+				D0E6A1A31CE90D9500809C57 /* LaunchScreen.storyboard */,
+				D0E6A1A61CE90D9500809C57 /* Info.plist */,
+			);
+			path = SoundTimer;
+			sourceTree = "<group>";
+		};
+		D0E6A1AE1CE90D9500809C57 /* SoundTimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0E6A1AF1CE90D9500809C57 /* SoundTimerTests.swift */,
+				D0E6A1B11CE90D9500809C57 /* Info.plist */,
+			);
+			path = SoundTimerTests;
+			sourceTree = "<group>";
+		};
+		D0E6A1B91CE90D9500809C57 /* SoundTimerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D0E6A1BA1CE90D9500809C57 /* SoundTimerUITests.swift */,
+				D0E6A1BC1CE90D9500809C57 /* Info.plist */,
+			);
+			path = SoundTimerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0E6A1961CE90D9500809C57 /* SoundTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0E6A1BF1CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimer" */;
+			buildPhases = (
+				D0E6A1931CE90D9500809C57 /* Sources */,
+				D0E6A1941CE90D9500809C57 /* Frameworks */,
+				D0E6A1951CE90D9500809C57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundTimer;
+			productName = SoundTimer;
+			productReference = D0E6A1971CE90D9500809C57 /* SoundTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0E6A1AA1CE90D9500809C57 /* SoundTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0E6A1C21CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimerTests" */;
+			buildPhases = (
+				D0E6A1A71CE90D9500809C57 /* Sources */,
+				D0E6A1A81CE90D9500809C57 /* Frameworks */,
+				D0E6A1A91CE90D9500809C57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0E6A1AD1CE90D9500809C57 /* PBXTargetDependency */,
+			);
+			name = SoundTimerTests;
+			productName = SoundTimerTests;
+			productReference = D0E6A1AB1CE90D9500809C57 /* SoundTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D0E6A1B51CE90D9500809C57 /* SoundTimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0E6A1C51CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimerUITests" */;
+			buildPhases = (
+				D0E6A1B21CE90D9500809C57 /* Sources */,
+				D0E6A1B31CE90D9500809C57 /* Frameworks */,
+				D0E6A1B41CE90D9500809C57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0E6A1B81CE90D9500809C57 /* PBXTargetDependency */,
+			);
+			name = SoundTimerUITests;
+			productName = SoundTimerUITests;
+			productReference = D0E6A1B61CE90D9500809C57 /* SoundTimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0E6A18F1CE90D9500809C57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Peter Vorwieger";
+				TargetAttributes = {
+					D0E6A1961CE90D9500809C57 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					D0E6A1AA1CE90D9500809C57 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D0E6A1961CE90D9500809C57;
+					};
+					D0E6A1B51CE90D9500809C57 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D0E6A1961CE90D9500809C57;
+					};
+				};
+			};
+			buildConfigurationList = D0E6A1921CE90D9500809C57 /* Build configuration list for PBXProject "SoundTimer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0E6A18E1CE90D9500809C57;
+			productRefGroup = D0E6A1981CE90D9500809C57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0E6A1961CE90D9500809C57 /* SoundTimer */,
+				D0E6A1AA1CE90D9500809C57 /* SoundTimerTests */,
+				D0E6A1B51CE90D9500809C57 /* SoundTimerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0E6A1951CE90D9500809C57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0E6A1A51CE90D9500809C57 /* LaunchScreen.storyboard in Resources */,
+				D0E6A1A21CE90D9500809C57 /* Assets.xcassets in Resources */,
+				D0E6A1A01CE90D9500809C57 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0E6A1A91CE90D9500809C57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0E6A1B41CE90D9500809C57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0E6A1931CE90D9500809C57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0E6A19D1CE90D9500809C57 /* ViewController.swift in Sources */,
+				D0E6A19B1CE90D9500809C57 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0E6A1A71CE90D9500809C57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0E6A1B01CE90D9500809C57 /* SoundTimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0E6A1B21CE90D9500809C57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0E6A1BB1CE90D9500809C57 /* SoundTimerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0E6A1AD1CE90D9500809C57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0E6A1961CE90D9500809C57 /* SoundTimer */;
+			targetProxy = D0E6A1AC1CE90D9500809C57 /* PBXContainerItemProxy */;
+		};
+		D0E6A1B81CE90D9500809C57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0E6A1961CE90D9500809C57 /* SoundTimer */;
+			targetProxy = D0E6A1B71CE90D9500809C57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0E6A19E1CE90D9500809C57 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0E6A19F1CE90D9500809C57 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D0E6A1A31CE90D9500809C57 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0E6A1A41CE90D9500809C57 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0E6A1BD1CE90D9500809C57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D0E6A1BE1CE90D9500809C57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0E6A1C01CE90D9500809C57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SoundTimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.peter.vorwieger.SoundTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D0E6A1C11CE90D9500809C57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SoundTimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.peter.vorwieger.SoundTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D0E6A1C31CE90D9500809C57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SoundTimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.peter.vorwieger.SoundTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SoundTimer.app/SoundTimer";
+			};
+			name = Debug;
+		};
+		D0E6A1C41CE90D9500809C57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SoundTimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.peter.vorwieger.SoundTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SoundTimer.app/SoundTimer";
+			};
+			name = Release;
+		};
+		D0E6A1C61CE90D9500809C57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SoundTimerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.peter.vorwieger.SoundTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SoundTimer;
+			};
+			name = Debug;
+		};
+		D0E6A1C71CE90D9500809C57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SoundTimerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.peter.vorwieger.SoundTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SoundTimer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0E6A1921CE90D9500809C57 /* Build configuration list for PBXProject "SoundTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0E6A1BD1CE90D9500809C57 /* Debug */,
+				D0E6A1BE1CE90D9500809C57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0E6A1BF1CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0E6A1C01CE90D9500809C57 /* Debug */,
+				D0E6A1C11CE90D9500809C57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0E6A1C21CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0E6A1C31CE90D9500809C57 /* Debug */,
+				D0E6A1C41CE90D9500809C57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0E6A1C51CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0E6A1C61CE90D9500809C57 /* Debug */,
+				D0E6A1C71CE90D9500809C57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0E6A18F1CE90D9500809C57 /* Project object */;
+}
