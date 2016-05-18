@@ -22,7 +22,7 @@ public class Gauge: UIView {
             self.backingValue = min(self.maximumValue, max(self.minimumValue, value))
             let angleRange = endAngle - startAngle
             let valueRange = CGFloat(maximumValue - minimumValue)
-            let angle = CGFloat(value - minimumValue) / valueRange * angleRange + endAngle
+            let angle = CGFloat(self.backingValue - minimumValue) / valueRange * angleRange + endAngle
             knobRenderer.setPointerAngle(angle, animated: animated)
         }
     }

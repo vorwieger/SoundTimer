@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         gaugePlaceholder.addSubview(gauge)
         gauge.tintColor = UIColor.orangeColor()
         gauge.backgroundColor = UIColor.darkGrayColor()
+        gauge.minimumValue = slider.minimumValue
+        gauge.maximumValue = slider.maximumValue
         gauge.value = slider.value
     }
     
