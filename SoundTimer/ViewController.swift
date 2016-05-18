@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var gaugePlaceholder: UIView!
+    @IBOutlet var slider: UISlider!
+    
     var gauge: Gauge!
     
     override func viewDidLoad() {
@@ -20,17 +22,17 @@ class ViewController: UIViewController {
         gaugePlaceholder.addSubview(gauge)
         gauge.tintColor = UIColor.orangeColor()
         gauge.backgroundColor = UIColor.darkGrayColor()
+        gauge.value = slider.value
     }
     
-    override func viewDidAppear(animated: Bool) {
-        gauge.setValue(1.0, animated: true)
-    }
-        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func sliderValueChanged(slider: UISlider) {
+        gauge.setValue(slider.value, animated: false)
+    }
 
 }
 

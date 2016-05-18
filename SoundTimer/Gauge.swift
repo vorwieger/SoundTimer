@@ -121,11 +121,11 @@ private class KnobRenderer {
         if animated {
             let midAngle = (max(pointerAngle, self.pointerAngle) - min(pointerAngle, self.pointerAngle) ) / 2.0 + min(pointerAngle, self.pointerAngle)
             let animation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-            animation.duration = 1.0
+            animation.duration = 0.2
             animation.values = [self.pointerAngle, midAngle, pointerAngle]
             animation.keyTimes = [0.0, 0.5, 1.0]
-            animation.repeatCount = 10
-            animation.autoreverses = true
+//            animation.repeatCount = 10
+//            animation.autoreverses = true
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             pointerLayer.addAnimation(animation, forKey: nil)
         }

@@ -20,26 +20,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmo-1H-03F">
-                                <rect key="frame" x="70" y="70" width="460" height="345"/>
+                                <rect key="frame" x="40" y="40" width="520" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kmo-1H-03F" secondAttribute="height" multiplier="4:3" id="mDE-1d-GAH"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UMP-il-3MW">
+                                <rect key="frame" x="38" y="500" width="524" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="3Em-UG-xPD"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kmo-1H-03F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="HS3-05-tFT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kmo-1H-03F" secondAttribute="trailing" constant="50" id="IEZ-OX-SHa"/>
-                            <constraint firstItem="kmo-1H-03F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="wbO-eA-qOv"/>
+                            <constraint firstItem="UMP-il-3MW" firstAttribute="bottom" secondItem="kmo-1H-03F" secondAttribute="bottom" constant="100" id="DPo-4M-RKU"/>
+                            <constraint firstItem="kmo-1H-03F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="HS3-05-tFT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kmo-1H-03F" secondAttribute="trailing" constant="20" id="IEZ-OX-SHa"/>
+                            <constraint firstItem="UMP-il-3MW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hET-aI-Dkz"/>
+                            <constraint firstItem="UMP-il-3MW" firstAttribute="width" secondItem="kmo-1H-03F" secondAttribute="width" id="re4-4z-k2A"/>
+                            <constraint firstItem="kmo-1H-03F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="wbO-eA-qOv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gaugePlaceholder" destination="kmo-1H-03F" id="x4W-Vr-SEZ"/>
+                        <outlet property="slider" destination="UMP-il-3MW" id="uly-PR-Wed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="307" y="372"/>
         </scene>
     </scenes>
 </document>
