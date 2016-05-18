@@ -10,11 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var gaugePlaceholder: UIView!
+    var gauge: Gauge!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
+        gauge = Gauge(frame: gaugePlaceholder.bounds)
+        gaugePlaceholder.addSubview(gauge)
+        gauge.tintColor = UIColor.orangeColor()
+        gauge.backgroundColor = UIColor.darkGrayColor()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        gauge.setValue(1.0, animated: true)
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
