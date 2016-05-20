@@ -19,9 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmo-1H-03F">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmo-1H-03F" customClass="Gauge" customModule="SoundTimer" customModuleProvider="target">
                                 <rect key="frame" x="40" y="40" width="520" height="390"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kmo-1H-03F" secondAttribute="height" multiplier="4:3" id="mDE-1d-GAH"/>
                                 </constraints>
@@ -32,20 +32,30 @@
                                     <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="3Em-UG-xPD"/>
                                 </connections>
                             </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="VPF-MN-8KJ">
+                                <rect key="frame" x="38" y="550" width="524" height="31"/>
+                                <connections>
+                                    <action selector="thresholdValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="IMH-jV-anR"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VPF-MN-8KJ" firstAttribute="baseline" secondItem="UMP-il-3MW" secondAttribute="baseline" constant="50" id="Atd-xo-dUl"/>
                             <constraint firstItem="UMP-il-3MW" firstAttribute="bottom" secondItem="kmo-1H-03F" secondAttribute="bottom" constant="100" id="DPo-4M-RKU"/>
+                            <constraint firstItem="VPF-MN-8KJ" firstAttribute="width" secondItem="kmo-1H-03F" secondAttribute="width" id="EmC-IR-BLQ"/>
                             <constraint firstItem="kmo-1H-03F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="HS3-05-tFT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kmo-1H-03F" secondAttribute="trailing" constant="20" id="IEZ-OX-SHa"/>
                             <constraint firstItem="UMP-il-3MW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hET-aI-Dkz"/>
+                            <constraint firstItem="VPF-MN-8KJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iN1-F7-rOC"/>
                             <constraint firstItem="UMP-il-3MW" firstAttribute="width" secondItem="kmo-1H-03F" secondAttribute="width" id="re4-4z-k2A"/>
                             <constraint firstItem="kmo-1H-03F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="wbO-eA-qOv"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="gaugePlaceholder" destination="kmo-1H-03F" id="x4W-Vr-SEZ"/>
+                        <outlet property="gauge" destination="kmo-1H-03F" id="947-Vw-Ham"/>
                         <outlet property="slider" destination="UMP-il-3MW" id="uly-PR-Wed"/>
+                        <outlet property="threshold" destination="VPF-MN-8KJ" id="LcD-6W-pg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

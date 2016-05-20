@@ -12,12 +12,12 @@ class ViewController: UIViewController {
 
     @IBOutlet var gauge: Gauge!
     @IBOutlet var slider: UISlider!
+    @IBOutlet var threshold: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gauge.minimumValue = slider.minimumValue
-        gauge.maximumValue = slider.maximumValue
         gauge.value = slider.value
+        gauge.threshold = threshold.value
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,6 +27,10 @@ class ViewController: UIViewController {
 
     @IBAction func sliderValueChanged(slider: UISlider) {
         gauge.value = slider.value
+    }
+
+    @IBAction func thresholdValueChanged(sender: AnyObject) {
+        gauge.threshold = threshold.value
     }
 
 }

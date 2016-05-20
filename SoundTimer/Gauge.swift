@@ -10,17 +10,20 @@ import UIKit
 
 public class Gauge: UIView {
     
-    private var backingValue: Float = 0.0
+    public var value:Float = 0.5 {
+        didSet {
+            value = min(self.maximumValue, max(self.minimumValue, value))
+            if value != oldValue {
+                setPointerAngle(calculateAngle(value))
+            }
+        }
+    }
     
-    public var value: Float {
-        get { return backingValue }
-        set {
-            if (newValue != backingValue) {
-                self.backingValue = min(self.maximumValue, max(self.minimumValue, newValue))
-                let angleRange = endAngle - startAngle
-                let valueRange = CGFloat(maximumValue - minimumValue)
-                let angle = CGFloat(self.backingValue - minimumValue) / valueRange * angleRange + endAngle
-                setPointerAngle(angle)
+    public var threshold:Float = 0.5 {
+        didSet {
+            threshold = min(self.maximumValue, max(self.minimumValue, threshold))
+            if threshold != oldValue {
+                updateThresholdPath()
             }
         }
     }
@@ -37,8 +40,8 @@ public class Gauge: UIView {
     
     let pointerLayer = CAShapeLayer()
     
-    let showLayers = true
-
+    let thresholdLayer = CAShapeLayer()
+    
     var oldBounds:CGRect?
     
     public override init(frame: CGRect) {
@@ -62,13 +65,16 @@ public class Gauge: UIView {
     private func createSublayers() {
         trackLayer.fillColor = UIColor.clearColor().CGColor
         trackLayer.strokeColor = UIColor.lightGrayColor().CGColor
-        if showLayers {trackLayer.backgroundColor =   UIColor.init(red: 0.5, green: 0.5, blue: 0.9, alpha: 0.5).CGColor}
         layer.addSublayer(trackLayer)
+
+        thresholdLayer.fillColor = UIColor.clearColor().CGColor
+        thresholdLayer.strokeColor = UIColor.yellowColor().CGColor
+        layer.addSublayer(thresholdLayer)
 
         pointerLayer.fillColor = UIColor.clearColor().CGColor
         pointerLayer.strokeColor = UIColor.orangeColor().CGColor
-        if showLayers {pointerLayer.backgroundColor = UIColor.init(red: 0.5, green: 0.9, blue: 0.5, alpha: 0.5).CGColor}
         layer.addSublayer(pointerLayer)
+        
     }
     
     func update(bounds: CGRect) {
@@ -77,15 +83,18 @@ public class Gauge: UIView {
         
         trackLayer.bounds = newBounds
         trackLayer.position = CGPoint(x: newBounds.width / 2 + offset.x, y: newBounds.height / 2 + offset.y)
+        trackLayer.lineWidth = trackLayer.bounds.height * 0.2
+        updateTrackLayerPath()
+        
+        thresholdLayer.bounds = newBounds
+        thresholdLayer.position = CGPoint(x: newBounds.width / 2 + offset.x, y: newBounds.height / 2 + offset.y)
+        thresholdLayer.lineWidth = thresholdLayer.bounds.height * 0.2
+        updateThresholdPath()
         
         pointerLayer.bounds = newBounds
         pointerLayer.position = CGPoint(x:newBounds.width / 2 + offset.x, y: newBounds.height + offset.y)
         pointerLayer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
-        
-        trackLayer.lineWidth = trackLayer.bounds.height * 0.2
         pointerLayer.lineWidth = 2.0
-
-        updateTrackLayerPath()
         updatePointerLayerPath()
     }
 
@@ -96,7 +105,16 @@ public class Gauge: UIView {
         path.addArcWithCenter(arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         trackLayer.path = path.CGPath
     }
-    
+
+    private func updateThresholdPath() {
+        let angle = startAngle + calculateAngle(threshold) - endAngle
+        let path = UIBezierPath()
+        let arcCenter = CGPoint(x: thresholdLayer.bounds.width / 2.0, y: thresholdLayer.bounds.height)
+        let radius = thresholdLayer.bounds.height * 0.9
+        path.addArcWithCenter(arcCenter, radius: radius, startAngle: angle, endAngle: endAngle, clockwise: true)
+        thresholdLayer.path = path.CGPath
+    }
+
     private func updatePointerLayerPath() {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: pointerLayer.bounds.width / 2.0, y: pointerLayer.bounds.height))
@@ -109,6 +127,12 @@ public class Gauge: UIView {
         CATransaction.setDisableActions(true)
         pointerLayer.transform = CATransform3DMakeRotation(pointerAngle, 0.0, 0.0, 0.1)
         CATransaction.commit()
+    }
+    
+    private func calculateAngle(value:Float) -> CGFloat {
+        let angleRange = endAngle - startAngle
+        let valueRange = CGFloat(maximumValue - minimumValue)
+        return CGFloat(value - minimumValue) / valueRange * angleRange + endAngle
     }
 
 }
