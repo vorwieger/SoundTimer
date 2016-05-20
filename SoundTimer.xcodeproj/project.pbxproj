@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D04B0E051CE94BE400366D8A /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04B0E041CE94BE400366D8A /* Gauge.swift */; };
 		D0E6A19B1CE90D9500809C57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A19A1CE90D9500809C57 /* AppDelegate.swift */; };
 		D0E6A19D1CE90D9500809C57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A19C1CE90D9500809C57 /* ViewController.swift */; };
 		D0E6A1A01CE90D9500809C57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E6A19E1CE90D9500809C57 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D04B0E041CE94BE400366D8A /* Gauge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
 		D0E6A1971CE90D9500809C57 /* SoundTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E6A19A1CE90D9500809C57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0E6A19C1CE90D9500809C57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				D0E6A19A1CE90D9500809C57 /* AppDelegate.swift */,
 				D0E6A19C1CE90D9500809C57 /* ViewController.swift */,
+				D04B0E041CE94BE400366D8A /* Gauge.swift */,
 				D0E6A19E1CE90D9500809C57 /* Main.storyboard */,
 				D0E6A1A11CE90D9500809C57 /* Assets.xcassets */,
 				D0E6A1A31CE90D9500809C57 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			files = (
 				D0E6A19D1CE90D9500809C57 /* ViewController.swift in Sources */,
 				D0E6A19B1CE90D9500809C57 /* AppDelegate.swift in Sources */,
+				D04B0E051CE94BE400366D8A /* Gauge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +488,7 @@
 				D0E6A1C11CE90D9500809C57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0E6A1C21CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +497,7 @@
 				D0E6A1C41CE90D9500809C57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0E6A1C51CE90D9500809C57 /* Build configuration list for PBXNativeTarget "SoundTimerUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +506,7 @@
 				D0E6A1C71CE90D9500809C57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
