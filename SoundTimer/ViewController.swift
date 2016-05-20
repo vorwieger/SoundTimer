@@ -10,18 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var gaugePlaceholder: UIView!
+    @IBOutlet var gauge: Gauge!
     @IBOutlet var slider: UISlider!
-    
-    var gauge: Gauge!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        gauge = Gauge(frame: gaugePlaceholder.bounds)
-        gaugePlaceholder.addSubview(gauge)
-        gauge.tintColor = UIColor.orangeColor()
-        gauge.backgroundColor = UIColor.darkGrayColor()
         gauge.minimumValue = slider.minimumValue
         gauge.maximumValue = slider.maximumValue
         gauge.value = slider.value
@@ -33,7 +26,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sliderValueChanged(slider: UISlider) {
-        gauge.setValue(slider.value, animated: false)
+        gauge.value = slider.value
     }
 
 }
