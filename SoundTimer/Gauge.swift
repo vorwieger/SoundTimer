@@ -68,7 +68,7 @@ public class Gauge: UIView {
         knobRenderer.startAngle = -CGFloat(M_PI * 6.0 / 8.0)
         knobRenderer.endAngle = -CGFloat(M_PI * 2.0 / 8.0)
         knobRenderer.pointerAngle = knobRenderer.endAngle
-        knobRenderer.lineWidth = 2.0
+        knobRenderer.lineWidth = 1.0
         layer.addSublayer(knobRenderer.trackLayer)
         layer.addSublayer(knobRenderer.pointerLayer)
     }
@@ -86,7 +86,7 @@ private class KnobRenderer {
         }
         
         set(strokeColor) {
-            trackLayer.strokeColor = strokeColor.CGColor
+            trackLayer.strokeColor = UIColor.lightGrayColor().CGColor
             pointerLayer.strokeColor = strokeColor.CGColor
         }
     }
@@ -126,7 +126,7 @@ private class KnobRenderer {
             animation.keyTimes = [0.0, 0.5, 1.0]
 //            animation.repeatCount = 10
 //            animation.autoreverses = true
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.timingFunction    = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             pointerLayer.addAnimation(animation, forKey: nil)
         }
         CATransaction.commit()
@@ -141,9 +141,13 @@ private class KnobRenderer {
     }
     
     func updateTrackLayerPath() {
+        let path = UIBezierPath()
         let arcCenter = CGPoint(x: trackLayer.bounds.width / 2.0, y: trackLayer.bounds.height)
-        let radius = trackLayer.bounds.height
-        trackLayer.path = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true).CGPath
+        let radius = trackLayer.bounds.height * 0.9
+        path.addArcWithCenter(arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+//        path.addArcWithCenter(arcCenter, radius: radius-20.0, startAngle:endAngle, endAngle: startAngle, clockwise: false)
+//        path.closePath()
+        trackLayer.path = path.CGPath
     }
     
     func updatePointerLayerPath() {
@@ -152,17 +156,17 @@ private class KnobRenderer {
         let from = CGPoint(x: pointerLayer.bounds.width / 2.0 , y: pointerLayer.bounds.height  )
         let to = CGPoint(x: pointerLayer.bounds.width / 2.0, y: 0)
         
-        path.addArcWithCenter(from, radius: 10.0, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+        //path.addArcWithCenter(from, radius: 10.0, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         path.moveToPoint(from)
         path.addLineToPoint(to)
-        path.addArcWithCenter(to, radius: 5.0, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+        //path.addArcWithCenter(to, radius: 5.0, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         
         pointerLayer.path = path.CGPath
     }
     
     func update() {
-        trackLayer.lineWidth = lineWidth
-        pointerLayer.lineWidth = lineWidth
+        trackLayer.lineWidth = trackLayer.bounds.height * 0.2
+        pointerLayer.lineWidth = 2.0
         
         updateTrackLayerPath()
         updatePointerLayerPath()
@@ -172,7 +176,7 @@ private class KnobRenderer {
         
         let border:CGFloat = 0.1
         let offset = CGPoint(x: bounds.width * border, y: bounds.height * border)
-        let newBounds = CGRect(x: 0, y: 0, width: bounds.width - 2.0 * offset.x, height: bounds.height - 2.0 * offset.y)
+        let newBounds = CGRect(x: 0, y: 0, width: bounds.width - 2.0 * offset.x, height: bounds.height - offset.y)
         
         trackLayer.bounds = newBounds
         trackLayer.position = CGPoint(x: newBounds.width / 2.0 + offset.x, y: newBounds.height / 2.0 + offset.y)
