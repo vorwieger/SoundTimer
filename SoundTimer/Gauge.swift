@@ -56,7 +56,6 @@ public class Gauge: UIView {
     
     public override func layoutSubviews() {
         if oldBounds != bounds {
-            print("layoutSubviews")
             oldBounds = bounds
             update(bounds)
         }
@@ -74,7 +73,6 @@ public class Gauge: UIView {
         pointerLayer.fillColor = UIColor.clearColor().CGColor
         pointerLayer.strokeColor = UIColor.orangeColor().CGColor
         layer.addSublayer(pointerLayer)
-        
     }
     
     func update(bounds: CGRect) {
@@ -92,15 +90,15 @@ public class Gauge: UIView {
         updateThresholdPath()
         
         pointerLayer.bounds = newBounds
-        pointerLayer.position = CGPoint(x:newBounds.width / 2 + offset.x, y: newBounds.height + offset.y)
+        pointerLayer.position = CGPoint(x: newBounds.width / 2 + offset.x, y: newBounds.height + offset.y)
         pointerLayer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
-        pointerLayer.lineWidth = 2.0
+        pointerLayer.lineWidth = pointerLayer.bounds.height / 100.0
         updatePointerLayerPath()
     }
 
     private func updateTrackLayerPath() {
         let path = UIBezierPath()
-        let arcCenter = CGPoint(x: trackLayer.bounds.width / 2.0, y: trackLayer.bounds.height)
+        let arcCenter = CGPoint(x: trackLayer.bounds.width / 2, y: trackLayer.bounds.height)
         let radius = trackLayer.bounds.height * 0.9
         path.addArcWithCenter(arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         trackLayer.path = path.CGPath
@@ -109,7 +107,7 @@ public class Gauge: UIView {
     private func updateThresholdPath() {
         let angle = startAngle + calculateAngle(threshold) - endAngle
         let path = UIBezierPath()
-        let arcCenter = CGPoint(x: thresholdLayer.bounds.width / 2.0, y: thresholdLayer.bounds.height)
+        let arcCenter = CGPoint(x: thresholdLayer.bounds.width / 2, y: thresholdLayer.bounds.height)
         let radius = thresholdLayer.bounds.height * 0.9
         path.addArcWithCenter(arcCenter, radius: radius, startAngle: angle, endAngle: endAngle, clockwise: true)
         thresholdLayer.path = path.CGPath
@@ -117,8 +115,8 @@ public class Gauge: UIView {
 
     private func updatePointerLayerPath() {
         let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: pointerLayer.bounds.width / 2.0, y: pointerLayer.bounds.height))
-        path.addLineToPoint(CGPoint(x: pointerLayer.bounds.width / 2.0, y: 0))
+        path.moveToPoint(CGPoint(x: pointerLayer.bounds.width / 2, y: pointerLayer.bounds.height))
+        path.addLineToPoint(CGPoint(x: pointerLayer.bounds.width / 2, y: 0))
         pointerLayer.path = path.CGPath
     }
 
