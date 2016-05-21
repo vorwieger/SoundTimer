@@ -15,6 +15,8 @@
 		D0E6A1A51CE90D9500809C57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E6A1A31CE90D9500809C57 /* LaunchScreen.storyboard */; };
 		D0E6A1B01CE90D9500809C57 /* SoundTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A1AF1CE90D9500809C57 /* SoundTimerTests.swift */; };
 		D0E6A1BB1CE90D9500809C57 /* SoundTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6A1BA1CE90D9500809C57 /* SoundTimerUITests.swift */; };
+		D0FFA8311CF06D6B00DD960D /* AudioMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFA8301CF06D6B00DD960D /* AudioMeter.swift */; };
+		D0FFA8331CF06E3C00DD960D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFA8321CF06E3C00DD960D /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		D0E6A1B61CE90D9500809C57 /* SoundTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E6A1BA1CE90D9500809C57 /* SoundTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTimerUITests.swift; sourceTree = "<group>"; };
 		D0E6A1BC1CE90D9500809C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0FFA8301CF06D6B00DD960D /* AudioMeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioMeter.swift; sourceTree = "<group>"; };
+		D0FFA8321CF06E3C00DD960D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FFA8331CF06E3C00DD960D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +88,7 @@
 				D0E6A1AE1CE90D9500809C57 /* SoundTimerTests */,
 				D0E6A1B91CE90D9500809C57 /* SoundTimerUITests */,
 				D0E6A1981CE90D9500809C57 /* Products */,
+				D0FFA8321CF06E3C00DD960D /* AVFoundation.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +107,7 @@
 			children = (
 				D0E6A19A1CE90D9500809C57 /* AppDelegate.swift */,
 				D0E6A19C1CE90D9500809C57 /* ViewController.swift */,
+				D0FFA8301CF06D6B00DD960D /* AudioMeter.swift */,
 				D04B0E041CE94BE400366D8A /* Gauge.swift */,
 				D0E6A19E1CE90D9500809C57 /* Main.storyboard */,
 				D0E6A1A11CE90D9500809C57 /* Assets.xcassets */,
@@ -261,6 +268,7 @@
 			files = (
 				D0E6A19D1CE90D9500809C57 /* ViewController.swift in Sources */,
 				D0E6A19B1CE90D9500809C57 /* AppDelegate.swift in Sources */,
+				D0FFA8311CF06D6B00DD960D /* AudioMeter.swift in Sources */,
 				D04B0E051CE94BE400366D8A /* Gauge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
