@@ -31,11 +31,12 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
     
     var recorder:AVAudioRecorder!
     var session: AVAudioSession!
-    var refreshRate = 100.0
+    var refreshRate = 20.0
 
     override init() {
         super.init()
-        let url = NSURL(fileURLWithPath: "/dev/null")
+        //let url = NSURL(fileURLWithPath: "/dev/null")
+        let url = NSURL.fileURLWithPathComponents([NSTemporaryDirectory(),"record.cav"])!
         recorder = try? AVAudioRecorder(URL:url, settings:[:])
         recorder.delegate = self
         recorder.meteringEnabled = true
@@ -62,7 +63,7 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
     func start() {
         state = AudioMeterState.WAITING
         recorder.recordForDuration(120)
-        let intervall = 1000 / refreshRate
+        let intervall = 1.0 / refreshRate
         let callback = #selector(levelTimerCallback(_:))
         NSTimer.scheduledTimerWithTimeInterval(intervall, target:self, selector:callback, userInfo:nil, repeats:true)
     }
@@ -78,7 +79,7 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
     func levelTimerCallback(timer:NSTimer) {
         if recorder.recording {
             recorder.updateMeters()
-            var decibel = recorder.peakPowerForChannel(0)
+            var decibel = recorder.averagePowerForChannel(0)
             decibel = decibel > 0 ? 0 : decibel
             delegate?.audioMeterLevelChanged(decibel)
         } else {
