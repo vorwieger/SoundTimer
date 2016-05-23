@@ -14,7 +14,7 @@ public class Gauge: UIView {
         didSet {
             value = min(self.maximumValue, max(self.minimumValue, value))
             if value != oldValue {
-                setPointerAngle(calculateAngle(value))
+                setPointerAngle(calculateAngle(oldValue), to:calculateAngle(value))
             }
         }
     }
@@ -120,10 +120,14 @@ public class Gauge: UIView {
         pointerLayer.path = path.CGPath
     }
 
-    private func setPointerAngle(pointerAngle: CGFloat) {
+    private func setPointerAngle(from: CGFloat, to: CGFloat) {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        pointerLayer.transform = CATransform3DMakeRotation(pointerAngle, 0.0, 0.0, 0.1)
+        pointerLayer.transform = CATransform3DMakeRotation(to, 0.0, 0.0, 1.0)
+        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        animation.duration = 0.05
+        animation.fromValue = from
+        pointerLayer.addAnimation(animation, forKey: nil)
         CATransaction.commit()
     }
     
