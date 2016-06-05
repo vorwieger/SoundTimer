@@ -22,7 +22,6 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
 
     var delegate : AudioMeterDelegate?
     
-    
     var state:AudioMeterState = AudioMeterState.UNKNOWN {
         didSet {
             delegate?.audioMeterStateChanged(state)
@@ -31,16 +30,38 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
     
     var recorder:AVAudioRecorder!
     var session: AVAudioSession!
-    var refreshRate = 20.0
+    var refreshRate:Float = 20.0
 
+    let url = NSURL.fileURLWithPathComponents([NSTemporaryDirectory(),"record.cav"])!
+    
     override init() {
         super.init()
-        //let url = NSURL(fileURLWithPath: "/dev/null")
-        let url = NSURL.fileURLWithPathComponents([NSTemporaryDirectory(),"record.cav"])!
-        recorder = try? AVAudioRecorder(URL:url, settings:[:])
+        let minimalSettings = [
+            AVSampleRateKey: 8000.0,
+            AVLinearPCMBitDepthKey: 8,
+            AVNumberOfChannelsKey: 1 as NSNumber,
+            AVEncoderAudioQualityKey: AVAudioQuality.Low.rawValue
+        ]
+        recorder = try? AVAudioRecorder(URL:url, settings:minimalSettings)
         recorder.delegate = self
         recorder.meteringEnabled = true
         recorder.prepareToRecord()
+    }
+    
+    var fileSize:UInt64 {
+        get {
+            var fileSize : UInt64 = 0
+            do {
+                let fileManager = NSFileManager.defaultManager()
+                let attr : NSDictionary? = try fileManager.attributesOfItemAtPath(url.path!)
+                if let _attr = attr {
+                    fileSize = _attr.fileSize();
+                }
+            } catch {
+                print("Error: \(error)")
+            }
+            return fileSize
+        }
     }
     
     func initSession() {
@@ -62,18 +83,20 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
 
     func start() {
         state = AudioMeterState.WAITING
-        recorder.recordForDuration(120)
-        let intervall = 1.0 / refreshRate
+        recorder.recordForDuration(60.0)
+        let intervall = NSTimeInterval(1.0 / refreshRate)
         let callback = #selector(levelTimerCallback(_:))
         NSTimer.scheduledTimerWithTimeInterval(intervall, target:self, selector:callback, userInfo:nil, repeats:true)
     }
     
     func stop() {
         recorder.stop()
+       
     }    
 
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         state = AudioMeterState.READY
+        //print("fileSize \(fileSize)")
     }
     
     func levelTimerCallback(timer:NSTimer) {
@@ -84,7 +107,8 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
             delegate?.audioMeterLevelChanged(decibel)
         } else {
             timer.invalidate();
-            delegate?.audioMeterLevelChanged(-160)
+            start()
+            //delegate?.audioMeterLevelChanged(-160)
         }
     }
     

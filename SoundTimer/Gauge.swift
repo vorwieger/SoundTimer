@@ -14,7 +14,7 @@ public class Gauge: UIView {
         didSet {
             value = min(self.maximumValue, max(self.minimumValue, value))
             if value != oldValue {
-                setPointerAngle(calculateAngle(oldValue), to:calculateAngle(value))
+                setPointerAngle(calculateAngle(value))
             }
         }
     }
@@ -28,9 +28,9 @@ public class Gauge: UIView {
         }
     }
     
-    public var minimumValue: Float = 0.0
+    public var minimumValue:Float = 0.0
     
-    public var maximumValue: Float = 1.0
+    public var maximumValue:Float = 1.0
     
     let startAngle:CGFloat = CGFloat(-3.0 * M_PI_4)
     
@@ -43,6 +43,8 @@ public class Gauge: UIView {
     let thresholdLayer = CAShapeLayer()
     
     var oldBounds:CGRect?
+    
+    var refreshRate:Float = 20
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -120,13 +122,19 @@ public class Gauge: UIView {
         pointerLayer.path = path.CGPath
     }
 
-    private func setPointerAngle(from: CGFloat, to: CGFloat) {
+    private func setPointerAngle(to: CGFloat) {
+//        print("setPointerAngle \(to)")
+        let currentAngle = CGFloat((pointerLayer.valueForKeyPath("transform.rotation.z")?.floatValue)!)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         pointerLayer.transform = CATransform3DMakeRotation(to, 0.0, 0.0, 1.0)
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-        animation.duration = 0.05
-        animation.fromValue = from
+//        let duration = abs(CFTimeInterval((to-currentAngle) * 100.0));
+//        print("duration: \(currentAngle) \(to) \(duration)")
+        let intervall = NSTimeInterval(1.0 / refreshRate)
+        animation.duration = intervall
+        animation.fromValue = currentAngle
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         pointerLayer.addAnimation(animation, forKey: nil)
         CATransaction.commit()
     }

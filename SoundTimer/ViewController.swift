@@ -19,28 +19,47 @@ class ViewController: UIViewController,AudioMeterDelegate {
         super.viewDidLoad()
         gauge.value = slider.value
         gauge.threshold = threshold.value
+        gauge.refreshRate = 20.0
         audioMeter = AudioMeter()
+        audioMeter.refreshRate = gauge.refreshRate
         audioMeter.delegate = self
         audioMeter.initSession()
         audioMeter.start()
     }
     
+    
+    func decibelToLinear(decibels:Float) -> Float {
+        var level:Float
+        let minDecibels:Float = -60.0
+        if (decibels < minDecibels) {
+            level = 0.0
+        } else if (decibels >= 0.0) {
+            level = 1.0
+        } else {
+            let root:Float = 2.0
+            let minAmp = powf(10.0, 0.05 * minDecibels)
+            let inverseAmpRange = 1.0 / (1.0 - minAmp)
+            let amp = powf(10.0, 0.05 * decibels)
+            let adjAmp = (amp - minAmp) * inverseAmpRange
+            level = powf(adjAmp, 1.0 / root);
+        }
+        return level
+    }
+    
     func audioMeterLevelChanged(decibels: Float) {
-        let linear = pow (10, decibels / 20)
-        gauge.value = linear
+        gauge.value = decibelToLinear(decibels) * slider.value
     }
     
     func audioMeterStateChanged(state: AudioMeterState) {
-        print("state \(state)")
+//        print("state \(state)")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func sliderValueChanged(slider: UISlider) {
-        gauge.maximumValue = 1.0 - slider.value
+        //gauge.maximumValue = 1.0 - slider.value
     }
 
     @IBAction func thresholdValueChanged(sender: AnyObject) {
