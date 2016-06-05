@@ -104,11 +104,27 @@ class AudioMeter: NSObject, AVAudioRecorderDelegate {
             recorder.updateMeters()
             var decibel = recorder.averagePowerForChannel(0)
             decibel = decibel > 0 ? 0 : decibel
-            delegate?.audioMeterLevelChanged(decibel)
+            delegate?.audioMeterLevelChanged(decibelToLinear(decibel))
         } else {
             timer.invalidate();
             start()
             //delegate?.audioMeterLevelChanged(-160)
+        }
+    }
+    
+    func decibelToLinear(decibels:Float) -> Float {
+        let minDecibels:Float = -60.0
+        if (decibels < minDecibels) {
+            return 0.0
+        } else if (decibels >= 0.0) {
+            return 1.0
+        } else {
+            let root:Float = 2.0
+            let minAmp = powf(10.0, 0.05 * minDecibels)
+            let inverseAmpRange = 1.0 / (1.0 - minAmp)
+            let amp = powf(10.0, 0.05 * decibels)
+            let adjAmp = (amp - minAmp) * inverseAmpRange
+            return powf(adjAmp, 1.0 / root);
         }
     }
     

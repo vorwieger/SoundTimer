@@ -27,27 +27,8 @@ class ViewController: UIViewController,AudioMeterDelegate {
         audioMeter.start()
     }
     
-    
-    func decibelToLinear(decibels:Float) -> Float {
-        var level:Float
-        let minDecibels:Float = -60.0
-        if (decibels < minDecibels) {
-            level = 0.0
-        } else if (decibels >= 0.0) {
-            level = 1.0
-        } else {
-            let root:Float = 2.0
-            let minAmp = powf(10.0, 0.05 * minDecibels)
-            let inverseAmpRange = 1.0 / (1.0 - minAmp)
-            let amp = powf(10.0, 0.05 * decibels)
-            let adjAmp = (amp - minAmp) * inverseAmpRange
-            level = powf(adjAmp, 1.0 / root);
-        }
-        return level
-    }
-    
-    func audioMeterLevelChanged(decibels: Float) {
-        gauge.value = decibelToLinear(decibels) * slider.value
+    func audioMeterLevelChanged(level: Float) {
+        gauge.value = level * slider.value
     }
     
     func audioMeterStateChanged(state: AudioMeterState) {
